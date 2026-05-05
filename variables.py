@@ -1,0 +1,12 @@
+x=10
+print(x)
+name="youtube"
+print(name)
+print(name[4])
+print(name[-2])
+print(name[0:2])
+print(name[1:4])
+print(name[1:])
+print(name[:])
+print(name[:4])
+print(len(name))
