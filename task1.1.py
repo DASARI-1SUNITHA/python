@@ -402,7 +402,7 @@ for i in d:
 # elif num%2==0 and num%5==0:
 #     print("given number is divisible by both 2 and 5")
 # else:
-#     print("given number is not divisible by 2 and 5")
+#     print("given number is noit divisible by 2 and 5")
 #Create a dictionary with 3 employees and their salaries. Print the salary of the employee with the highest pay.
 s={"sunitha":50000,"anitha":60000,"rahul":55000}
 high=0
