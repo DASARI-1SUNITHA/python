@@ -6,7 +6,7 @@ add_numbers(3,5)
 # Create a function multiply(x, y) that multiplies two numbers. Call it with positional arguments.
 def multiply(x,y):
     print(x*y)
-multiply(y=4,x=8)
+multiply(4,8)
 # Define a function greet(name) that prints "Hello, <name>!". Call it with "Alice".
 def greet(name):
     print("Hello",name,"!")
@@ -55,7 +55,7 @@ discount(100)
 discount(100,20)
 # Define welcome_message(message="Welcome to Python!"). Call it without arguments.
 def welcome_message(message="Welcome to python!"):
-    return message
+    return messagex
 print(welcome_message())
 
 # Write a function circle_area(radius, pi=3.14) that calculates area. Call it with only radius.
@@ -138,29 +138,29 @@ print(average(1,2,3,4))
 # Write a function print_info(**kwargs) that prints all key-value pairs.
 def print_info(**kwargs):
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 print_info(name="sunitha",marks=90,city="Nandyal")
 
 # Create student_profile(**kwargs) that prints student details.
 def student_profile(**kwargs):
     for i ,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 student_profile(name="Angel",age=21,Marks=80,percet=80)
 
 # Define car_details(**kwargs) that prints car attributes.
 def car_details(**kwargs):
     for i , j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 car_details(car="BMW",insurance=True,days=10)
 # Write employee_data(**kwargs) that prints employee info.
 def employee_data(**kwargs):
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 employee_data(employee_name="SunithaDasari",dep="IT",age=21,employeeID=101)
 # Create settings(**kwargs) that prints configuration settings.
 def settings(**kwargs):
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 settings(theme="Dark",language="English",volume=60)
 # 🔹 Section 7: Combining *args and **kwargs
 # Write mixed_function(*args, **kwargs) that prints both.
@@ -168,7 +168,7 @@ def mixed_func(*args,**kwargs):
     for i in args:
         print(i)
     for i, j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 mixed_func(1,2,3,4)
 mixed_func(name="Sunitha",age=21)
 # Create register_user(*args, **kwargs) that prints positional and keyword arguments.
@@ -176,14 +176,14 @@ def register(*args,**kwargs):
     for i in args:
         print(i)
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 register("sunitha",21,dep="IT",ID=101)
 # Define shopping_cart(*args, **kwargs) that prints items and details.
 def shopping_cart(*args,**kwargs):
     for i in args:
         print(i)
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 shopping_cart("kurta","box","jeans",kurta=500,box=100,jeans=800)
 
 # Write event_details(*args, **kwargs) that prints event info.
@@ -191,7 +191,7 @@ def event_details(*args,**kwargs):
     for i in args:
         print(i)
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 event_details("Marraige","25th",date="24/6/2025",Place="Nandyal")
 
 # Create log_data(*args, **kwargs) that prints logs
@@ -199,7 +199,7 @@ def log_data(*args,**kwargs):
     for i in args:
         print(i)
     for i,j in kwargs.items():
-        print(i,j)
+        print(i,":",j)
 log_data("username","Passwod",username="Sunitha.Dasari",time="9:00AM")
 
 # Section 8: Practice Challenges
@@ -220,7 +220,7 @@ def student_report(name,*args,**kwargs):
         print(i)
     for i,j in kwargs.items():
         print(i,j)
-student_report("sunitha",101,subjects="Maths",marks=75,branch="Data Science")
+student_report("sunitha",101,21,subjects="Maths",marks=75,branch="Data Science")
 # Write recipe(ingredient1, ingredient2, *args, **kwargs) that prints recipe details.
 def recipe(ingredients1,ingredients2,*args,**kwargs):
     for i in args:

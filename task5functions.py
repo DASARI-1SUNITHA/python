@@ -264,11 +264,10 @@ s1="Hello world"
 def number(s):
     words=s1.split( )
     count=len(words)
-
     return count
 print(count(s1))
 # Write a function that takes a string and returns all unique characters.
-s="madam"
+s="madam" 
 def unique(s):
     s1=""
     for ch in s:
@@ -591,10 +590,11 @@ palindrome(p)
 # 57. Create a function that accepts an integer and returns the count of even digits in it.
 n=12344
 def count(n):
-    count=0
+    count=0 
     while n>0:
         n//=10
-        count+=1
+        if n%2==0:
+            count+=1
     return count
 print(count(n))
 # 58. Write a function that takes an integer and returns the next Fibonacci number after it.

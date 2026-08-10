@@ -121,13 +121,13 @@ print(s==s1)
 
 #D. Conditional Statements (22–30)
 #Check if a number is positive, negative, or zero.
-# i=int(input("Enter a number:"))
-# if i==0:
-#     print("given number is zero")
-# elif i>0:
-#     print("Positive")
-# else:
-#     print("Negative")
+i=int(input("Enter a number:"))
+if i==0:
+    print("given number is zero")
+elif i>0:
+    print("Positive")
+else:
+    print("Negative")
 #Ask the user to enter their age. If age ≥ 18, print "Eligible to vote", else "Not eligible".
 # age=int(input("Enter your age:"))
 # if age>=18:
@@ -212,6 +212,11 @@ print(len(t))
 t=("Sun","sunitha","suni","sunii")
 for i in t:
     print(i)
+
+print(t[0])
+print(t[1])
+print(t[2])
+print(t[3])
 #F. Dictionaries (36–41)
 #Create a dictionary with 3 countries as keys and their capitals as values. Print the capital of "India".
 di={"india":"Delhi","France":"Paris","russia":"Moscow"}
@@ -238,7 +243,7 @@ print(di.keys())
 # di={"pen":100,"box":200,"book":150}
 # user=input("Enter input:")
 # price=di.get[user]
-# if i not in price:
+# if i  in price:
 #     print("Item found")
 # else:
 #     print("Item not found")
@@ -262,8 +267,7 @@ print(len(lis))
 if "red" in colors:
     print("Exists")
 #Print the second to fourth elements of a list.
-print(lis[1])
-print(lis[-2])
+print(lis[2:4])
 #Print the last 3 elements of a list.
 print(lis[-3:])
 #Store 5 names in a list and print the name at index 2.
@@ -316,7 +320,7 @@ print(names)
 #Check if the first and last elements of a list are equal.
 l=[2,3,4,5,6,2]
 if l[0]==l[-1]:
-    print("first abd last are same elements")
+    print("first and last are same elements")
 #Create a list of strings. Print "Contains Python" if "Python" is in the list.
 s=["python","maths","Java","c"]
 for i in s:

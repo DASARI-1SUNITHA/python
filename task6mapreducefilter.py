@@ -10,7 +10,7 @@ print(list(s))
 # Extract the id property from an array of objects: [{id:1,name:"A"}, {id:2,name:"B"}, {id:3,name:"C"}]
 objects=[{"id":1,"name":"A"}, {"id":2,"name":"B"}, {"id":3,"name":"C"}]
 d=list(map(lambda x:x["id"],objects))
-print(d)
+print(type(id))
 # Add 5 to each element in [10, 20, 30] using map().
 n=[10, 20, 30] 
 s=map(lambda x:x+5 ,n)
@@ -55,7 +55,7 @@ b=list(filter(lambda x:x>20,n))
 print(b)
 # Use filter() to get only truthy values from [0,1,false,2,"",3].
 s=[0,1,"false",2,"",3]
-t=list(filter(lambda x:x if x!=" " else x,s))
+t=list(filter(lambda x:x,s))
 print(t)
 # Filter out negative numbers from [5,-3,9,-1,0].
 n=[5,-3,9,-1,0]
@@ -76,8 +76,7 @@ d=list(filter(lambda x:x["age"]>18,ob))
 print(d)
 # Filter out duplicate values from [1,2,2,3,4,4,5] using filter().
 values=[1,2,2,3,4,4,5]
-v=[]
-d=list(filter(lambda x:x not in v and not v.append(x) ,values))
+d=list(filter(lambda x:values.count(x)==1 ,values))
 print(d)
 # From ["red","blue","green","yellow"], filter colors containing "e".
 colors=["red","blue","green","yellow"]
@@ -100,7 +99,7 @@ print(c)
 # Count occurrences of each element in [1,2,2,3,3,3] using reduce().
 elements=[1,2,2,3,3,3]
 freq={}
-e=reduce(lambda x,y:x if x not in freq else y,elements)
+e=reduce(lambda acc,x:{**acc,x:acc.get(x,0)+1},elements,{})
 print(e)
 # Use reduce() to flatten [[1,2],[3,4],[5]] into [1,2,3,4,5].
 f=[[1,2],[3,4],[5]]
