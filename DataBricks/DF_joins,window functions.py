@@ -2,27 +2,6 @@
 
 #joins
 
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC
-
-# COMMAND ----------
-
-# MAGIC %md
-# MAGIC
-
-# COMMAND ----------
 
 from pyspark.sql import SparkSession
 spark=SparkSession.builder.appName("joins").getOrCreate()

@@ -1,0 +1,119 @@
+Python Basic Programs
+
+A. Data Types & Literals (1–7)
+Store your name, age, and city in variables and print them.
+print("name:",'sunitha')
+print("age:",22)
+print("city:",'Nandyal)
+Create a tuple with 5 fruits and print the third fruit.
+Store marks of 3 subjects in a dictionary and print the marks of "Math".
+Write a program to store 3 integers and print their sum.
+Create a tuple of 4 colors and print the last color.
+Store employee details (name, ID, department) in a dictionary and print the department.
+Write a program to store a float, int, and string in variables and print their types.
+B. Strings (8–14)
+Check if "Python" is present in "I am learning Python programming".
+Print only the first 5 characters of "Hello World".
+Concatenate two strings "Good" and "Morning".
+Count how many times "o" appears in "Hello World".
+Reverse the string "Python".
+Check if a string entered by the user starts with "A".
+Check if "apple" contains "p".
+C. Operators (15–21)
+Take two numbers and print their sum, difference, product, and quotient.
+Check if 25 is greater than 20 and less than 30.
+Ask the user for two numbers. Print "Both are positive" if both are greater than 0, else "At least one is not positive".
+Check if a number is divisible by both 2 and 3.
+Check if "a" is in "apple".
+Check if a number is between 1 and 100 (inclusive).
+Compare two strings "cat" and "dog".
+D. Conditional Statements (22–30)
+Check if a number is positive, negative, or zero.
+Ask the user to enter their age. If age ≥ 18, print "Eligible to vote", else "Not eligible".
+Check if a given number is even or odd.
+Input a number and check if it is divisible by 5.
+Ask the user to enter a password. If it matches "admin123", print "Access Granted", else "Access Denied".
+Check if a character entered by the user is a vowel or consonant.
+Check if a given year is a leap year.
+Ask the user for marks. Print "Grade A" if marks ≥ 90, "Grade B" if ≥ 75, "Grade C" if ≥ 50, else "Fail".
+Check if a number is odd and greater than 50.
+E. Tuples (31–35)
+Create a tuple with 6 numbers. Print the largest and smallest number.
+Check if 50 exists in (10, 20, 30, 40, 50, 60).
+Store 5 colors in a tuple. Ask the user to enter a color name. Check if it exists.
+Print the length of a tuple (1, 2, 3, 4, 5).
+Create a tuple with 4 strings. Print them one by one using indexing.
+F. Dictionaries (36–41)
+Create a dictionary with 3 countries as keys and their capitals as values. Print the capital of "India".
+Add a new country-capital pair to an existing dictionary.
+Given a dictionary of student marks, check if "Anita" is present as a key. If yes, print her marks.
+Create a dictionary with usernames and passwords. Ask the user to enter a username and password. If both match, print "Login Successful", else "Login Failed".
+Print all keys of a dictionary.
+Create a dictionary with 3 items and their prices. Ask the user to enter an item name. Print the price if it exists, else "Item not found".
+G. Lists (42–61)
+Create a list of 5 numbers and print the first and last elements.
+Add a new element to a list.
+Remove an element from a list.
+Create a list of 4 colors and print its length.
+Check if "red" exists in a list of colors.
+Print the second to fourth elements of a list.
+Print the last 3 elements of a list.
+Store 5 names in a list and print the name at index 2.
+Reverse a list.
+Replace the second element of a list with "Python".
+Create a list of 5 numbers. Check if a number entered by the user exists in the list.
+Store 5 subjects in a list. Ask the user to enter a subject name. If it exists, print "Found", else "Not Found".
+Create a list of marks. If the average is ≥ 50, print "Pass", else "Fail".
+Check if the first and last elements of a list are equal.
+Create a list of strings. Print "Contains Python" if "Python" is in the list.
+Create a list of 5 numbers. Print the largest and smallest numbers.
+Count how many times "apple" appears in a list.
+Store 5 numbers in a list. Print only the even numbers.
+Check if a list is empty.
+Create a list of 5 numbers. If all numbers are positive, print "All Positive", else "Contains Negative".
+H. Mixed Concept Questions (62–70)
+Store 5 numbers in a tuple. Check if the number 10 is present.
+Create a dictionary with student names as keys and marks as values. Check if "Rahul" is in the dictionary.
+Take a string input and check if it contains "Python".
+Ask the user for two numbers. Print "Equal" if they are equal, "First is greater" if the first is larger, else "Second is greater".
+Check if a number is divisible by 2 OR 5.
+Create a dictionary with 3 employees and their salaries. Print the salary of the employee with the highest pay.
+Check if a string entered by the user contains both "a" and "b".
+Store 5 subjects in a tuple. Ask the user to enter a subject name. If it exists, print "Subject Found", else "Not Found".
+Check if a number entered by the user is both even and between 10 and 50.
+I. Strings – Built-in Practice (71–80)
+Convert a string to uppercase.
+Convert a string to lowercase.
+Remove extra spaces from a string.
+Replace one word in a string with another.
+Split a string into a list of words.
+Join a list of words into a single string.
+Count how many times a letter appears in a string.
+Find the position of a character in a string.
+Check if a string contains only letters and numbers.
+Check if a string contains only digits.
+J. Lists – Built-in Practice (81–90)
+Add an element to the end of a list.
+Add multiple elements to a list at once.
+Insert an element at a specific position in a list.
+Remove a specific element from a list.
+Remove the last element from a list.
+Arrange the elements of a list in ascending order.
+Reverse the order of elements in a list.
+Find the position of an element in a list.
+Count how many times a number appears in a list.
+Remove all elements from a list.
+K. Dictionaries – Built-in Practice (91–100)
+Print all keys of a dictionary.
+Print all values of a dictionary.
+Print all key-value pairs of a dictionary.
+Access the value of a key safely.
+Add a new key-value pair to a dictionary.
+Remove a specific key from a dictionary.
+Remove the last inserted item from a dictionary.
+Check if a key exists in a dictionary.
+Create a dictionary with given keys and the same default value.
+Make a copy of a dictionary.
+
+
+

@@ -5,7 +5,7 @@
 #     print("positive")
 # elif num1<0:
 #     print("Negative")
-# else:
+# else:,
 #     print("zero")
 # # Even or Odd: Take an integer,Print whether it is even or odd.
 # num2=6
@@ -144,7 +144,7 @@
 # # Age Category:0–12 → Child,13–19 → Teenager,20–59 → Adult,# 60+ → Senior Citizen
 # age=67
 # if age<=12:
-#     print('child')
+#     print('child')9
 # elif age>=13 and age<=19:#13<=age<=19
 #     print('Teenager')
 # elif age>=20 and age<=59:
@@ -193,12 +193,12 @@
 # # num=10
 # # while num>0:
 # #     print(num)
-# #     num-=1
+# #     num-=1o0
 # # # Print all even numbers from 1 to 50.
 # # for i in range(1,50):
 # #     if i%2==0:
 # #         print(i)
-# # # Print all odd numbers from 1 to 50.
+# # # Print bffv  odd numbers from 1 to 50.
 # # for i in range(1,50):
 # #     if i%2!=0:
 # #         print(i)
@@ -218,7 +218,7 @@
 # # Find the sum of even numbers from 1 to N.
 # n=10
 # sum=0
-# for i in range(1,n+1):
+# for i in range(1,n+1):h g
 # #     if i%2==0:
 # #         sum+=i
 # # print(sum)
@@ -228,7 +228,7 @@
 # # for i in range(1,n+1):
 # #     if i%2!=0:
 # #         sum+=i
-# # print(sum)
+# # print(sum)  
 # # # Print the multiplication table of a number.
 # # # Input: 5 # 5 x 1 = 5
 # # n=5
@@ -397,26 +397,54 @@
 # ***
 # ****
 # *****
+n=6
+for i in range(n):
+    for j in range(1,i+1):
+        print("*",end=" ")
+    print()
+print("------------------------")
 # *****
 # ****
 # ***
 # **
 # *
+n=5
+for i in range(n,0,-1):
+    for j in range(i+1):
+        print("*",end=" ")
+    print()
+print("------------------------")
 # 1
 # 12
 # 123
 # 1234
 # 12345
+n=5
+for i in range(n):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+print("-----------------------")
 # 1
 # 22
 # 333
 # 4444
 # 55555
+for i in range(n):
+    for j in range(1,i+1):
+        print(i,end=" ")
+    print()
+print(" -----------------------")
 # 12345
 # 1234
 # 123
 # 12
 # 1
+for i in range(n,0,-1):
+    for j in range(i+1):
+        print(j,end=" ")
+    print()
+print('-----------------')
 #     *
 #    **
 #   ***
@@ -431,13 +459,26 @@
 # 23
 # 456
 # 78910
+for i in range(n):
+    for j in range(1,i+1):
+        print(i,end=" " )   
+    print()
 # A
 # AB
 # ABC
 # ABCD
 # ABCDE
+for i in range(1,6):
+    for j in range(i):
+        print(chr(65+j),end="")
+    print()
+
 # A
 # BB
 # CCC
 # DDDD
 # EEEEE
+for i in range(1,6):
+    for j in range(i):
+        print(chr(64+i),end="")
+    print()

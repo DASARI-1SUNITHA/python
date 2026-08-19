@@ -126,11 +126,11 @@ df2.display()
 # Count the number of NULL values in salary.
 df.filter(col('salary').isNull()).count()
 # Replace NULL salary with 0.
-df = df.withColumn('salary',when(col('salary').isNull(),0).otherwise(col('salary')))
-# Replace NULL city with "Unknown".
-df = df.withColumn('city',when(col('city').isNull(),'Unknown').otherwise(col('city')))
-# Remove rows where salary is NULL.
-df = df.filter(col('salary').isNotNull()); display(df)
+# df = df.withColumn('salary',when(col('salary').isNull(),0).otherwise(col('salary')))
+# # Replace NULL city with "Unknown".
+# df = df.withColumn('city',when(col('city').isNull(),'Unknown').otherwise(col('city')))
+# # Remove rows where salary is NULL.
+# df = df.filter(col('salary').isNotNull()); display(df)
 # Remove rows where either salary OR city is NULL.
 df.filter(col('salary').isNotNull() & col('city').isNotNull()).display()
 # Remove rows where both salary AND city are NULL.

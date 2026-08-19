@@ -341,52 +341,147 @@ def count_arg(*args):
     return count
 print(count_arg(1,2,3,4,5,6))
 # Write a function using *args that separates even and odd numbers.
+def sep_even_odd(*args):
+    l=[]
+    l1=[]
+    for i in args:
+        if i%2==0:
+            l.append(i)
+        if i%2!=0:
+            l1.append(i)
+    return l,l1
+print(sep_even_odd([1,5,2,3,4,9,8,7]))
+        
+
+        
 # Write a function using *args that calculates the average.
+def avg(*args):
+    sum=0
+    for i in args:
+        sum+=i
+    a=sum/len(args)
+    return a
+print(avg(1,2,3,4,5))
+
 # Write a function using *args that accepts numbers and returns only the positive numbers.
-# 🟠 Level 7 — **kwargs
+def num(*args):
+    for i in args:
+        if i>0:
+            print(i)
+num(1,7,-3,8,-2)
+  # 🟠 Level 7 — **kwargs
 # Create a function using **kwargs that prints employee details.
-# employee(
-#     name="John",
-#     age=25,
-#     salary=50000,
-#     department="IT"
-# )
+def employee(**kwargs):
+    for i,j in kwargs.items:
+        print(i,j)
+employee(name="John",age=25,salary=50000,department="IT")
 # Write a function using **kwargs that returns the number of employee attributes supplied.
+def emp(**kwargs):
+    count=0
+    for i,j in kwargs.items():
+       count+=1
+    print(freq_count)
+emp(name="John",age=25,salary=50000,department="IT")
 # Write a function using **kwargs that prints only the keys.
+def employee(**kwargs):
+    for i,j in kwargs.keys():
+        print(i)
+employee(name="John",age=25,salary=50000,department="IT")
 # Write a function using **kwargs that prints only the values.
+def employee(**kwargs):
+    for i,j in kwargs.values():
+        print(j)
+employee(name="John",age=25,salary=50000,department="IT")
 # Write a function that accepts both *args and **kwargs.
-
-# Example:
-
-# employee(101, 102, 103, name="John", department="IT")
+def employee(*args,**kwargs):
+    for i in args:
+        print(i)
+    for i,j in kwargs.items:
+        print(i,j)
+employee(name="John",age=25,salary=50000,department="IT")
 # 🟠 Level 8 — Lambda + Functions
 # Create a lambda function to add two numbers.
+a=map(lambda x,y:x+y,[1,2,3])
+print(list(a))
 # Create a lambda function to find the square of a number.
+a=map(lambda x:x**2,[1,2,3,4])
+print(list(a))
 # Create a lambda function to check whether a number is even.
+a=filter(lambda x:x%2==0,[1,5,3,2])
+print(list(a))
 # Use map() with a lambda to square every element in a list.
+a=map(lambda x:x**2,[1,2,3,4,5])
+print(list(a))
 # Use filter() with a lambda to extract even numbers.
+a=filter(lambda x:x%2==0,[1,2,3,4,5,6])
+print(list(a))
 # Use filter() with a lambda to extract numbers greater than 50.
+a=filter(lambda x:x>50,[1,2,40,90,70])
+print(list(a))
 # Use sorted() with lambda to sort this list by the second element:
-# students = [
-#     ("John", 80),
-#     ("Alice", 95),
-#     ("Bob", 70)
-# ]
+
+students = [
+    ("John", 80),
+    ("Alice", 95),
+    ("Bob", 70)
+]
+s=sorted(students,k=lambda x:x[1])
+print(s)
 # Use lambda to sort employees based on salary.
-# employees = [
-#     ("A", 50000),
-#     ("B", 30000),
-#     ("C", 70000)
-# ]
+employees = [
+    ("A", 50000),
+    ("B", 30000),
+    ("C", 70000)
+]
+s=sorted(employees,key=lambda x:x[1])
+print(s)
 # 🔴 Level 9 — Recursion
 # Find factorial using recursion.
+def fact(n):
+    if n==0 and n==1:
+        return 1
+    return n*fact(n-1)
 # Find the sum of numbers from 1 to n using recursion.
-# Find the nth Fibonacci number using recursion.
+def sum(n):
+    if n<=1:
+        return n
+    return n+sum(n-1)
+# Find the nth Fibonacci number using recursion.\
+def fib(n):
+    if n<=1:
+        return n
+    return fib(n-1)+fib(n-2)
 # Reverse a string using recursion.
+def rever(s):
+    if len(s)<=1:
+        return s
+    return s[-1]+rever(s[:-1])
 # Check whether a string is palindrome using recursion.
+def is_palin(s):
+    if len(s)<=1:
+        return True
+    if s[0] !=s[-1]:
+        return False
+    return is_palin(s[1:-1])
 # Find the sum of digits using recursion.
+def sum(n):
+    if n<10:
+        return n
+    return(n%10)+sum(n//10)
+
 # Count the digits of a number using recursion.
+def count_digits(n):
+    if n<10:
+        return 1
+    return 1+count_digits(n//10)
 # Calculate a^b using recursion without using **.
+def power(a, b):
+    if b == 0:  # Base case
+        return 1
+    if b < 0:  # Handle negative exponents
+        return 1 / power(a, -b)
+    return a * power(a, b - 1)
+
 # 🔴 Level 10 — Interview-Level Function Problems
 # Write a function to find the second largest number in a list without sorting.
 # Write a function to find all duplicate elements in a list.
@@ -439,17 +534,4 @@ print(count_arg(1,2,3,4,5,6))
 # Write a function that reads a CSV file and returns the employee with the highest salary.
 # Write a function that accepts a list of transactions and calculates total sales.
 # Write a function that separates valid and invalid records based on missing values.
-# 🎯 Challenge Set — Do These Without Help
 
-# For your mock interview, I recommend solving these 10 first:
-
-# 1. is_prime(n)
-# 2. factorial(n)
-# 3. is_palindrome(s)
-# 4. frequency_count(list)
-# 5. second_largest(list)
-# 6. remove_duplicates(list)
-# 7. find_missing_number(list)
-# 8. find_pairs(list, target)
-# 9. employee_highest_salary(employees)
-# 10. department_highest_salary(employees)

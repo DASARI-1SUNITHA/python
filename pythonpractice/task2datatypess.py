@@ -190,11 +190,30 @@
 #         continue
 #     print(i)
 # Use a loop to print numbers from 1 to 15, but stop when you reach 10.
-for i in range(1,15):
-    if i==10:
-        break
-    print(i)
+# for i in range(1,15):
+#     if i==10:
+#         break
+#     print(i)
 # Write a loop that prints "Prime" if a number is prime, otherwise "Not Prime", for numbers 2–20.
-# Use a loop to print squares of numbers from 1 to 10, but only if the square is less than 50.
-# Write a loop that iterates through a list of tuples (name, age) and prints "Adult" if age ≥ 18, otherwise "Minor".
+for i in range(2,21):
+    factors=0
+    for j in range(1,i+1):
+        if i%j==0:
+            factors+=1
+    if factors==2:
+        print("Prime")
+    else:
+        print("Not Prime")
 
+
+#Use a loop to print squares of numbers from 1 to 10, but only if the square is less than 50.
+for i in range(1,11):
+    if i**2<50:
+        print(i**2,end=" ")
+#Write a loop that iterates through a list of tuples (name, age) and prints "Adult" if age ≥ 18, otherwise "Minor".
+people = [("Alice", 30), ("Bob", 15), ("Charlie", 25), ("David", 10)]
+for name ,age  in people:
+    if age>=18:
+        print("Adult")
+    else:
+        print("Minor")

@@ -506,7 +506,8 @@ dic1=dict.fromkeys(keys,default_value)
 print(dic1)
     
 # Make a copy of a dictionary.
-dic2=dic1.copy()
+dic2={}
+dic1.copy()
 print(dic2)
 
 

@@ -20,7 +20,6 @@ def st(l):
             large=i
     return large
 print(st(l))
-
 # Create a function that accepts a list and returns a new list with duplicates removed.
 l1=[1,2,3,1,4,2,5,6]
 l2=[]
@@ -181,7 +180,7 @@ def maxvowels(t):
     for word in t:
         count=0
         for i in word:
-            if i  in vowels:
+            if i  in vowels:4
                 count+=1
         if count>maxcount:
             maxcount=count
