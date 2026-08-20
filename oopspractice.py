@@ -270,48 +270,169 @@ class Temp:
 t=Temp()
 t.convert(34)
 # Create a Bank class that keeps track of the total number of accounts created using a class variable.
+class Bank:
+    total_accounts=0
+    def __init__(self,acc_holder,balance):
+        self.acc_holder=acc_holder
+        self.balance=balance
+      
+    total_accounts+=1
+    print(total_accounts)
+acc=Bank('sunitha',852963)
+
+
 # 🔵 Level 4 — Encapsulation
 
 # Create a BankAccount class with a private variable __balance.
-
 # Implement:
-
 # deposit
 # withdraw
 # get_balance
+class BankAccount:
+    def __init__(self,balance):
+        self.__balance=balance
+    def dep(self,amt):
+        self.__balance+=amt
+        print(self.__balance)
+    def withdraw(self,amt):
+        self.amt=amt
+        if self.amt<self.__balance:
+            self.__balance-amt
+            print(self.__balance-amt)
+        else:
+            print("Insuff balance")
+    def get_balance(self):
+        print(self.__balance)
+d=BankAccount(100000)
+d.dep(2000)
+d.withdraw(2000)
+d.get_balance()
+    
 
 # Create an Employee class with private __salary.
+class Employee:
+    def __init__(self,salary):
+        self.__salary=salary
+    def display(self):
+        print(self.__salary)
 
+e=Employee(30000)
+e.display()
 # Create getter and setter methods with validation so salary cannot be negative.
+class Employee:
+    def __init__(self,salary):
+        self.__salary=salary
+    def get_salary(self):
+        print(self.__salary)
+    def set_salary(self,new_salary):
+        if new_salary>=0:
+            self.__salary=new_salary
+            print(self.__salary)
+e=Employee(20000)
+e.get_salary()
+e.set_salary(40000)
+    
+# Create a Student class with private __marks.# Allow marks only between 0 and 100.
 
-# Create a Student class with private __marks.
-
-# Allow marks only between 0 and 100.
+class Student:
+    def __init__(self,marks):
+        self.__marks=marks
+    def get_marks(self):
+        return self.__marks
+    def set_marks(self,new_marks):
+        if 0<=new_marks<=100:
+            self.__marks=new_marks
+            print(self.__marks)
+        else:
+            print('enter valid marks between 0 to 100')
+s=Student(90)
+s.get_marks()
+s.set_marks(95)
+s.get_marks()
 
 # Create a User class with a private password.
+# class User:
+#     def __init__(self,username,password):
+#         self.username=username
+#         self.__password=password
+#     def display_info(self,user,passw):
+#         if user==self.username and passw==self.__password:
+#             print('Login successful')
+#         else:
+#             print('login not successful')
+# u=User('sunitha','@admin123')
+# u.display_info('sunitha','@admin123')
 
 # Implement a method to verify whether a given password is correct.
-
+class  User:
+    def __init__(self,username,password):
+        self.username=username
+        self.__password=password
+    def display_info(self,user,passw):
+        if user==self.username and passw==self.__password:
+            print('Login successful')
+        else:
+            print('login not successful')
+u=User('sunitha','@admin123')
+u.display_info('sunitha','@admin123')
 # Explain and demonstrate the difference between:
 # self.name
 # _name
 # __name
+class Demo:
+    def __init__(self,name,age):
+        self.name=name
+        self._name=name
+        self.__name=name
+        self.age=age
+    def display(self):
+        print(self.name)
+        print(self._name)
+        print(self.__name)
+        print(self.age)
+d=Demo('Angel',21)
+d.display()
+
 # 🟣 Level 5 — Inheritance
 # Create:
 # Animal
 #    ↓
 # Dog
-
 # Animal should have a method sound(). Override it in Dog.
+class Animal:
+    def sound(self):
+        print("animal makes sound")
 
+class Dog(Animal):
+    def sound(self):
+        print("barks")
+
+d=Dog()
+d.sound()
 # Create:
 # Employee
 #    ↓
 # Manager
-
 # Employee has name and salary. Manager has an additional bonus.
-
 # Calculate the manager's total salary.
+class Employee:
+    def __init__(self,name,salary):
+        self.name=name
+        self.salary=salary
+    def display_info(self):
+        print(self.name)
+        print(self.salary)
+class manager(Employee):
+    def __init__(self,name,salary,bonus):
+         super().__init__(name,salary)
+         self.bonus=bonus
+    def calculate_bonus(self):
+        self.salary+=self.bonus
+    def display(self):
+        print(self.bonus)
+m=manager('sunitha',200000,3000)
+m.display()
+
 
 # Create:
 # Vehicle
@@ -319,8 +440,25 @@ t.convert(34)
 # Car
 #    ↓
 # ElectricCar
-
 # Demonstrate multilevel inheritance.
+class Vehicle:
+    def start(self):
+        print('vehicle starts')
+    def stop(self):
+        print('vehicle stops')
+class Car(Vehicle):
+    def type(self):
+        print('its a  not sports car')
+    def fuel(self):
+        print('fuel not required')
+
+class ElectricCar(Car):
+    def display_cost(self):
+        print('it cost around 400000')
+e=ElectricCar()
+e.display_cost()
+e.type()
+e.fuel()
 
 # Create:
 # Person
@@ -330,6 +468,31 @@ t.convert(34)
 # CollegeStudent
 
 # Add different attributes at each level.
+class person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
+    def display_info(self):
+        print(self.name)
+        print(self.age)
+class Student(person):
+    def __init__(self,name,age,dept):
+        super().__init__(name,age)
+        self.dept=dept
+    def display1(self):
+        print(self.dept)
+class CollegeStudent(Student):
+    def __init__(self,name,age,dept,regno):
+        super().__init__(name,age,dept)
+        self.regno=regno
+    def display(self):
+        print(self.regno)
+c=CollegeStudent('asd',21,'datascience',3253)
+c.display_info()
+c.display1()
+c.display()
+    
+
 
 # Create:
 # Animal
@@ -337,8 +500,31 @@ t.convert(34)
 # Dog
 #    ↓
 # Puppy
-
 # Use super() to call parent constructors.
+class Animal:
+    def __init__(self):
+        print('this is my pet')
+    def sound(self):
+        print('animal make sound')
+
+class Dog(Animal):
+    def __init__(self):
+        super().__init__()
+    def sound(self):
+        super().sound()
+        print("dog barks")
+class Puppy(Dog):
+    def __init__(self):
+        super().__init__()
+    def sound(self):
+        super().sound()
+        print("woffff!....")
+def sound(self):
+    self.sound()
+p=Puppy()
+p.sound()
+d=Dog()
+d.sound()
 
 # Create:
 # Employee
@@ -348,6 +534,29 @@ t.convert(34)
 # SeniorDeveloper
 
 # Each class should have its own method and demonstrate super().
+class Employee:
+    def __init__(self,name):
+        self.name=name
+    def work(self):
+        print(self.name)
+class Developer(Employee):
+    def __init__(self,name,programming_lang):
+        super().__init__(name)
+        self.programming=programming_lang
+    def write_code(self):
+        print(self.name)
+    def display(self):
+        print(self.programming)
+class SeniorDeveloper(Developer):
+    def __init__(self,name,programming_lang,team):
+        super().__init__(name,programming_lang)
+        self.team=team
+    def lead_team(self):
+        print(self.team)
+s=SeniorDeveloper('sunitha','python','Ai')
+s.work()
+s.write_code()
+s.lead_team()
 
 # 🔴 Level 6 — Multiple & Hierarchical Inheritance
 # Create:
@@ -357,52 +566,187 @@ t.convert(34)
 #       Child
 
 # Use multiple inheritance and access methods from both parents.
-
+class Father:
+    def Property(self):
+        print("land")
+class Mother:
+    def Car(self):
+        print('car')
+class child(Father,Mother):
+    def education(self):
+        print('Btech')
+c=child()
+c.education()
+c.Car()
+c.Property()
 # Create:
 # Employee
 #  /      \
 # Developer  Tester
-
 # Demonstrate hierarchical inheritance.
+class Employee:
+    def __init__(self,name,emp_id,salary):
+        self.name=name
+        self.emp_id=emp_id
+        self.salary=salary
+    def details(self):
+        return self.name,self.emp_id,self.salary
+class Developer(Employee):
+    def __init__(self,name,emp_id,salary,lang):
+        super().__init__(name,emp_id,salary)
+        self.lang=lang
+    def write_code(self):
+        return self.name,self.lang
+class Tester(Employee):
+    def __init__(self, name, emp_id, salary, testing_tool):
+        super().__init__(name, emp_id, salary)
+        self.testing_tool = testing_tool
+    def test_software(self):
+        return self.name,self.testing_tool
+dev=Developer('sunitha',1234,67890,'python')
+tester=Tester('sdfg',456,23456,'selenium')
+print(dev.write_code())
+print(tester.test_software())
 
-# Create:
-# Person
+
+# Create
 #  /    \
 # Student Employee
 #  \      /
 #   CollegeEmployee
 
 # Try implementing this using multiple/hybrid inheritance.
+# class Student:
+#     def __init__(self,id):
+#         self.id=id
+#     def study(self):
+#         return self.id
 
+# class Employee:
+#     def __init__(self, employee_id, salary):
+#         self.employee_id = employee_id
+#         self.salary = salary
+#     def work(self):
+#         return f"{self.id} 's salary is{self.salary}"
+# class CollegeEmployee(Student,Employee):
+#     def __init__(self, name, student_id, major, employee_id, salary):
+#         Student.__init__(self, student_id, major)
+#         Employee.__init__(self, employee_id, salary)
+#         self.name = name
+#     def show_role(self):
+#         return f'{self.name} balance both roles'
+# g=CollegeEmployee('asdvb',12345,"IT","qwsdr43")
+# print(g.show_role())
+# print(g.study)
 # Create two parent classes:
-# class Father:
-#     def skills(self):
-#         print("Driving")
+class Father:
+    def skills(self):
+        print("Driving")
 
 
-# class Mother:
-#     def skills(self):
-#         print("Cooking")
+class Mother:
+    def skills(self):
+        print("Cooking")
 
 # Create a child class that inherits from both and calls both methods.
-
+class child(Father,Mother):
+    def education(self):
+        print("Btech")
+    def display(self):
+        Father.skills(self)
+        Mother.skills(self)
+s=child()
+s.education()
+s.display()
 # 🟤 Level 7 — Polymorphism
 # Create Dog, Cat, and Cow classes. Each should have a sound() method.
-
 # Use a loop to call sound() for all objects.
+class Dog:
+    def sound(self):
+        print('barks')
+class Cat:
+    def sound(self):
+        print('meow')
+
+class Cow:
+    def sound(self):
+        print('.....')
+d=Dog()
+c=Cat()
+cow=Cow()
+animals=[d,c,cow]
+for animal in animals:
+    animal.sound()
+
 
 # Create Circle, Rectangle, and Triangle classes with an area() method.
-
 # Calculate areas polymorphically.
+class Circle:
+    def __init__(self,pi,r):
+        self.pi=pi,
+        self.r=r
+    def area(self,pi,r):
+        return self.pi*self.r*self.r
+class Rectangle():
+    def __init__(self,l,b):
+        self.l=l
+        self.b=b
+    def area(self,l,b):
+        return self.l*self.b
+class Triangle:
+    def __init__(self,b,h):
+            self.b=b
+            self.h=h
+    def area(self,b,h):
+        return (1/2)*self.b*self.h
 
+# shapes=[Circle(pi=3.14,r=10),Rectangle(l=10,b=10),Triangle(b=10,h=10)]
+# for shape in shapes:
+#     print(shape.area())
+    
 # Create Developer and Manager classes with a common method:
 # calculate_salary()
-
 # Show how the same method behaves differently.
+class Devloper:
+    def __init__(self,name,salary,working_hours):
+        self.name=name
+        self.salary=salary
+        self.working_hrs=working_hours
+    def calculate_salary(self):
+        return self.salary+self.working_hrs
+class manager:
+    def __init__(self,name,salary,project_bonus):
+        self.name=name
+        self.salary=salary
+        self.project_bonus=project_bonus
+    def calculate_salary(self):
+        return self.salary+self.project_bonus
+# team=[Developer('as0',345557,7890),
+#       manager('sdf',3466667,7890)]
+# for member in team:
+#     print(member.calculate_salary())
+
+
+
+
 
 # Demonstrate method overriding using:
 # Vehicle → Car
 # Demonstrate duck typing using classes that have the same method but do not inherit from the same parent.
+
+class Vehicle:
+    def drive(self):
+        print("The vehicle moves forward.")
+class Car(Vehicle):
+    def drive(self):
+        print("The car zooms down the highway on four wheels!")
+
+class Boat:
+    def drive(self):
+        print("The boat cuts through the waves across the water!")
+travel_options=[Car(),Boat()]
+for option in travel_options:
+    option.drive()
 # ⚫ Level 8 — Abstraction
 # Create an abstract class Shape with an abstract method area().
 
