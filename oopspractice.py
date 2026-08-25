@@ -721,10 +721,7 @@ class manager:
         self.project_bonus=project_bonus
     def calculate_salary(self):
         return self.salary+self.project_bonus
-# team=[Developer('as0',345557,7890),
-#       manager('sdf',3466667,7890)]
-# for member in team:
-#     print(member.calculate_salary())
+# 
 
 
 
@@ -749,28 +746,86 @@ for option in travel_options:
     option.drive()
 # ⚫ Level 8 — Abstraction
 # Create an abstract class Shape with an abstract method area().
-
 # Create:
-
 # Circle
 # Rectangle
-
 # Implement area() in both.
+from abc import ABC,abstractmethod
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+class Circle(Shape):
+    def __init__(self,pi,r):
+        self.pi=pi
+        self.r=r
+    def area(self):
+        print(self.pi*self.r*self.r)
+class Rectangle(Shape):
+    def __init__(self,l,b):
+        self.l=l
+        self.b=b
+    def area(self):
+        print(self.l*self.b)
+c=Circle(3.14,10)
+r=Rectangle(10,5)
+c.area()
+r.area()
 
-# Create an abstract class Payment with:
-# pay()
-
+# Create an abstract class Payment with:pay()
 # Create:
-
 # CreditCardPayment
 # UPIPayment
 # CashPayment
+class Payment(ABC):
+    @abstractmethod
+    def pay(self):
+        pass
+class Creditcardpayment(Payment):
+    def pay(self):
+        print('credit card is used for payment')
+class UPIpayment(Payment):
+    def pay(self):
+        print('Method used in this is UPI')
+class Cashpayment(Payment):
+    def pay(self):
+        print('method used here is cash')
+c=Creditcardpayment()
+u=UPIpayment()
+C=Cashpayment()
+c.pay()
+u.pay()
+C.pay()
+
+
 # Create an abstract Vehicle class with:
 # start()
 # stop()
-
 # Implement them in Car and Bike.
-
+class Vehicle(ABC):
+    @abstractmethod
+    def start(self):
+        pass
+    @abstractmethod
+    def stop(self):
+        pass
+class Car(Vehicle):
+    def start(self):
+        print("car is started")
+    def stop(self):
+        print('car has stop')
+class Bike(Vehicle):
+    def start(self):
+        print("bike is started")
+    def stop(self):
+        print("car has stop")
+c=Car()
+c.start()
+c.stop()
+b=Bike()
+b.start()
+b.stop()
+    
 # 🔥 Level 9 — Interview-Level Programs
 # Create an Employee management system using OOP.
 
@@ -781,30 +836,168 @@ for option in travel_options:
 # 3. Search employee
 # 4. Update salary
 # 5. Delete employee
+class Employee:
+    def __init__(self,emp_id,name,salary):
+        self.emp_id=emp_id
+        self.name=name
+        self.salary=salary
+employee=[]
+def add_emp():
+    emp_id=int(input("enter id of emp:"))
+    name=input("enter emp name:")
+    salary=float(input("Enter salary of emp:"))
+    employee.append(Employee(emp_id,name,salary))
+def display_emp():
+    for emp in employee:
+        print(emp.emp_id,emp.name,emp.salary)
+
+def search_emp():
+    emp_id=int(input("enter emp id:" ))
+    for emp in employee:
+        if emp.emp_id==emp_id:
+            print(emp.name,emp.salary)
+        else:
+            print("Employee not found")
+def update_salary():
+    emp_id=int(input("enter emp_id to update salary:"))
+    for emp in employee:
+        if emp.emp_id==emp_id:
+            new_salary=float(input("Enter new salary:"))
+            emp.salary=new_salary
+            print("salary is updated")
+        else:
+            print("employee not found")
+def delete_employee():
+    emp_id=int(input("enter  emp_id u want to delete:"))
+    for emp in employee:
+        if emp.emp_id==emp_id:
+            employee.remove(emp)
+            print("employee is removed")
+        else:
+            print("employee is not found")
+def main():
+    while True:
+        print("1.Add Emp")
+        print('2.Display emp')
+        print('3.search emp')
+        print('4.update salary')
+        print('5.delete emp')
+        print('6.exit')
+        choice=input("enter your choice(1-6):")
+        if choice=="1": add_emp()
+        elif choice=='2':display_emp()
+        elif choice=='3':search_emp()
+        elif choice=='4':update_salary()
+        elif choice=='5':delete_employee()
+        elif choice=='6':break
+        else:
+            print("invalid choice")
+if __name__=='__main__':
+    main()
+
+
+
 # Create a Banking System using OOP.
 
 # Implement:
-
 # Create account
 # Deposit
 # Withdraw
 # Check balance
 # Transfer money
+class BankingSystem:
+    def ___init__(self,account_number,name,balance=0):
+        self.account_number=account_number
+        self.name=name
+        self.balance=balance
+    def deposit(self,amount):
+        self.amount+=amount
+    def withdraw(self,amount):
+        if amount<=self.balance:
+            self.balance-=amount
+        else:
+            print('Insufficient balance')
+    def check_balance(self):
+        print(self.balance)
+    def transfer(self,other_acc,amount):
+        if amount<=self.balance:
+            self.balance-=amount
+            other_acc+=amount
+            print("transfer successful")
+        else:
+            print('Insufficient balance')
+a=BankAccount(101,'sun',123456)
+a.deposit(2345)
+a.withdraw(234)
+a.transfer(1000)
+a.check_balance()
+
 # Create a Library Management System.
-
 # Classes:
-
 # Book
 # Student
 # Library
-
 # Operations:
-
 # Add book
 # Issue book
 # Return book
 # Search book
 # Display available books
+class Book:
+    def __init__(self,book_id,title):
+        self.book_id=book_id
+        self.title=title
+        self.available=True
+class Student:
+    def __init__(self,name):
+        self.borrowed_books=[]
+        self.name=name
+class Library:
+    def __init__(self):
+        self.books=[]
+        self.students=[]
+    def add_book(self,title,author):
+        new_book=Book(title,author)
+        self.books.append(new_book)
+        print(title)
+    def dispaly_book(self):
+        for book in self.books:
+            if book.is_available:
+                print(book.title)
+    def search_book(self,title):
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                status = "Available" if book.is_available else "Borrowed"
+                print(f"Found: '{book.title}' by {book.author} | Status: {status}")
+                return
+        print("Book not found.")
+    
+
+    def issue_book(self, student_name, book_title):
+        # Find the book and the student
+        for book in self.books:
+            if book.title.lower() == book_title.lower() and book.is_available:
+                book.is_available = False
+                print(f"'{book.title}' has been given to {student_name}.")
+                return
+        print("Sorry, book is either not found or already borrowed.")
+
+
+    def return_book(self, book_title):
+        for book in self.books:
+            if book.title.lower() == book_title.lower() and not book.is_available:
+                book.is_available = True
+                print(f"'{book.title}' is now returned to the library.")
+                return
+        print("This book was not borrowed.")
+my_lib=Library()
+my_lib.add_book("Harry Potter", "J.K. Rowling")
+my_lib.add_book("The Hobbit", "J.R.R. Tolkien")
+my_lib.display_books()
+my_lib.search_book("The Hobbit")
+my_lib.issue_book("Alice", "Harry Potter")
+my_lib.display_books()
+
 # Create a Shopping Cart system.
 
 # Classes:
@@ -820,6 +1013,60 @@ for option in travel_options:
 # Calculate total
 # Apply discount
 # Display cart
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+class Cart:
+    def __init__(self):
+        self.items = [] 
+    def add_product(self, product):
+        self.items.append(product)
+        print(product.name)
+    def remove_product(self, product_name):
+        for product in self.items:
+            if product.name.lower() == product_name.lower():
+                self.items.remove(product)
+                print(product.name)
+                return
+        print(product_name)
+    def calculate_total(self):
+        total = 0
+        for product in self.items:
+            total += product.price
+        return total
+    def apply_discount(self, discount_percentage):
+        current_total = self.calculate_total()
+        discount_amount = (discount_percentage / 100) * current_total
+        final_total = current_total - discount_amount
+        print(discount_amount,discount_percentage)
+    def display_cart(self):
+        if not self.items:
+            print("Your cart is empty.")
+            return
+        for product in self.items:
+            print(f"• {product.name} - ${product.price}")
+        print(f"Total Bill: ${self.calculate_total()}")
+
+
+class Customer:
+    def __init__(self, name):
+        self.name = name
+        self.cart = Cart()
+customer = Customer("Alice")
+print(f"Welcome, {customer.name}!")
+laptop = Product("Laptop", 999.99)
+headphones = Product("Headphones", 149.99)
+mouse = Product("Wireless Mouse", 25.00)
+customer.cart.add_product(laptop)
+customer.cart.add_product(headphones)
+customer.cart.add_product(mouse)
+customer.cart.display_cart()
+customer.cart.remove_product("Wireless Mouse")
+customer.cart.display_cart()
+final_bill = customer.cart.apply_discount(10)
+print(f"Final Amount to Pay: ${final_bill:.2f}")
 # Create a Hospital Management System.
 
 # Classes:
@@ -830,7 +1077,68 @@ for option in travel_options:
 # Hospital
 
 # Implement basic registration and appointment functionality.
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
+
+class Doctor(Person):
+    def __init__(self, name, age, specialization):
+        super().__init__(name, age)
+        self.specialization = specialization
+
+
+class Patient(Person):
+    def __init__(self, name, age):
+        super().__init__(name, age)
+
+
+class Hospital:
+    def __init__(self):
+        self.doctors = []
+        self.patients = []
+        self.appointments = []
+
+    def register_doctor(self, doctor):
+        self.doctors.append(doctor)
+        print("Doctor registered successfully")
+
+    def register_patient(self, patient):
+        self.patients.append(patient)
+        print("Patient registered successfully")
+
+    def book_appointment(self, patient, doctor):
+        self.appointments.append((patient.name, doctor.name))
+        print("Appointment booked successfully")
+
+
+# Create hospital
+hospital = Hospital()
+
+# Create doctor
+doctor = Doctor("Ravi", 35, "Cardiologist")
+
+# Create patient
+patient = Patient("Sunitha", 25)
+
+# Register
+hospital.register_doctor(doctor)
+hospital.register_patient(patient)
+
+# Appointment
+hospital.book_appointment(patient, doctor)
+
+print("\nDoctor:")
+print(doctor.name)
+print(doctor.specialization)
+
+print("\nPatient:")
+print(patient.name)
+print(patient.age)
+
+print("\nAppointments:")
+print(hospital.appointments)
 # Create an ATM system using OOP.
 
 # Implement:
@@ -841,3 +1149,85 @@ for option in travel_options:
 # Withdraw
 # Mini statement
 # Exit
+class ATM:
+    def __init__(self):
+        self.pin = 1234
+        self.balance = 10000
+        self.transactions = []
+
+    def verify_pin(self):
+        pin = int(input("Enter PIN: "))
+
+        if pin == self.pin:
+            print("PIN verified successfully")
+            return True
+        else:
+            print("Wrong PIN")
+            return False
+
+    def check_balance(self):
+        print("Balance:", self.balance)
+
+    def deposit(self):
+        amount = float(input("Enter deposit amount: "))
+
+        self.balance += amount
+        self.transactions.append("Deposited: " + str(amount))
+
+        print("Amount deposited successfully")
+
+    def withdraw(self):
+        amount = float(input("Enter withdrawal amount: "))
+
+        if amount <= self.balance:
+            self.balance -= amount
+            self.transactions.append("Withdrawn: " + str(amount))
+            print("Please collect your cash")
+        else:
+            print("Insufficient balance")
+
+    def mini_statement(self):
+        print("\nMini Statement")
+
+        if len(self.transactions) == 0:
+            print("No transactions")
+        else:
+            for transaction in self.transactions:
+                print(transaction)
+
+
+# Create ATM object
+atm = ATM()
+
+# PIN verification
+if atm.verify_pin():
+
+    while True:
+
+        print("\n----- ATM MENU -----")
+        print("1. Check Balance")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Mini Statement")
+        print("5. Exit")
+
+        choice = int(input("Enter your choice: "))
+
+        if choice == 1:
+            atm.check_balance()
+
+        elif choice == 2:
+            atm.deposit()
+
+        elif choice == 3:
+            atm.withdraw()
+
+        elif choice == 4:
+            atm.mini_statement()
+
+        elif choice == 5:
+            print("Thank you for using ATM")
+            break
+
+        else:
+            print("Invalid choice")
