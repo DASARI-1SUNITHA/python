@@ -341,16 +341,16 @@ def count_arg(*args):
     return count
 print(count_arg(1,2,3,4,5,6))
 # Write a function using *args that separates even and odd numbers.
-def sep_even_odd(*args):
-    l=[]
-    l1=[]
-    for i in args:
-        if i%2==0:
-            l.append(i)
-        if i%2!=0:
-            l1.append(i)
-    return l,l1
-print(sep_even_odd([1,5,2,3,4,9,8,7]))
+# def sep_even_odd(*args):
+#     l=[]
+#     l1=[]
+#     for i in args:
+#         if i%2==0:
+#             l.append(i)
+#         if i%2!=0:
+#             l1.append(i)
+#     return l,l1
+# print(sep_even_odd([1,5,2,3,4,9,8,7]))
         
 
         
@@ -372,7 +372,7 @@ num(1,7,-3,8,-2)
   # 🟠 Level 7 — **kwargs
 # Create a function using **kwargs that prints employee details.
 def employee(**kwargs):
-    for i,j in kwargs.items:
+    for i,j in kwargs.items():
         print(i,j)
 employee(name="John",age=25,salary=50000,department="IT")
 # Write a function using **kwargs that returns the number of employee attributes supplied.
@@ -384,25 +384,26 @@ def emp(**kwargs):
 emp(name="John",age=25,salary=50000,department="IT")
 # Write a function using **kwargs that prints only the keys.
 def employee(**kwargs):
-    for i,j in kwargs.keys():
+    for i,j in kwargs.items():
         print(i)
 employee(name="John",age=25,salary=50000,department="IT")
 # Write a function using **kwargs that prints only the values.
 def employee(**kwargs):
-    for i,j in kwargs.values():
+    for i,j in kwargs.items():
         print(j)
 employee(name="John",age=25,salary=50000,department="IT")
 # Write a function that accepts both *args and **kwargs.
 def employee(*args,**kwargs):
     for i in args:
         print(i)
-    for i,j in kwargs.items:
+    for i,j in kwargs.items():
         print(i,j)
 employee(name="John",age=25,salary=50000,department="IT")
 # 🟠 Level 8 — Lambda + Functions
 # Create a lambda function to add two numbers.
-a=map(lambda x,y:x+y,[1,2,3])
-print(list(a))
+from functools import reduce
+a=reduce(lambda x,y:x+y,[1,2])
+print(a)
 # Create a lambda function to find the square of a number.
 a=map(lambda x:x**2,[1,2,3,4])
 print(list(a))
@@ -425,28 +426,29 @@ students = [
     ("Alice", 95),
     ("Bob", 70)
 ]
-s=sorted(students,k=lambda x:x[1])
-print(s)
+# s=sorted(students,lambda x:x[1])
+# print(s)
 # Use lambda to sort employees based on salary.
 employees = [
     ("A", 50000),
     ("B", 30000),
     ("C", 70000)
 ]
-s=sorted(employees,key=lambda x:x[1])
-print(s)
+# s=sorted(employees,lambda x:x[1])
+# print(s)
 # 🔴 Level 9 — Recursion
 # Find factorial using recursion.
 def fact(n):
-    if n==0 and n==1:
+    if n==0 or n==1:
         return 1
     return n*fact(n-1)
+print(fact(5))
 # Find the sum of numbers from 1 to n using recursion.
 def sum(n):
     if n<=1:
         return n
     return n+sum(n-1)
-# Find the nth Fibonacci number using recursion.\
+# Find the nth Fibonacci number using recursion.
 def fib(n):
     if n<=1:
         return n
@@ -484,31 +486,109 @@ def power(a, b):
 
 # 🔴 Level 10 — Interview-Level Function Problems
 # Write a function to find the second largest number in a list without sorting.
+l=[1,7,3,0,9,4]
+def sec_largest(l):
+    large=l[0]
+    sec=l[0]
+    for i in l:
+        if i>large:
+            sec=large
+            large=i
+        elif i>sec and large!=sec:
+            sec=i
+    return sec
+print(sec_largest(l))
 # Write a function to find all duplicate elements in a list.
+l=[1,3,5,2,4,2,6,7]
+def find_duplicates(l):
+    for i in range(len(l)-1,-1,-1):
+        if l.count(l[i])>1:
+            l.pop(i)
+    return l
+print(find_duplicates(l))
 # Write a function to find the missing number from:
-# [1, 2, 3, 5, 6]
+l=[1, 2, 3, 5, 6]
 
 # Expected:
 
 # 4
+def missing_number(l):
+    for i in range(1,len(l)):
+        if i not in l:
+            print(i)
+missing_number(l)
 # Write a function to find pairs whose sum equals a target.
-# numbers = [2, 4, 3, 5, 7, 8]
-# target = 10
+numbers = [2, 4, 3, 5, 7, 8]
+target = 10
 
 # Expected pairs:
 
 # (2, 8)
 # (3, 7)
+def find_pairs(numbers):
+    for i in range(len(numbers)):
+        for j in range(i+1,len(numbers)):
+            if numbers[i]+numbers[j]==target:
+                print(numbers[i],numbers[j])
+find_pairs(numbers)
+
 # Write a function to rotate a list by k positions.
+k=2
+l=[1,2,3,4,5]
+def list_rotation(l):
+    for i in range(2):
+        last_ele=l.pop()
+        l.insert(0,last_ele)
+    return l
+print(list_rotation(l))        
 # Write a function to find the intersection of two lists without using built-in set operations.
+def intersection(l1,l2):
+    inter=[]
+    for i in l1:
+        if i in l2 and i not in inter:
+            inter.append(i)
+    return inter
+print(intersection(l1,l2))
 # Write a function to flatten:
-# [[1, 2], [3, 4], [5, 6]]
+l1=[[1, 2], [3, 4], [5, 6]]
 
 # into:
 
 # [1, 2, 3, 4, 5, 6]
+l=[]
+def flatten(l1):
+    for i in l1:
+        for j in i:
+            l.append(j)
+    return l
+print(flatten(l1))
 # Write a function to find the longest word in a sentence.
+s='python programming language'
+def longest_word(s):
+    largest=""
+    for i in s.split():
+        if len(i)>len(largest):
+            largest=i
+    return largest
+print(longest_word(s))
 # Write a function to find the word with the highest frequency in a sentence.
+def high_freq_word(s):
+    freq={}
+    highfreq=0
+    high_fre_word=""
+    for word in s.split():
+        if word not in freq:
+            freq[word]=1
+        else:
+            freq[word]+=1
+    for word in freq:
+        if freq[word]>highfreq:
+            highfreq=freq[word]
+            high_fre_word=word
+    return high_fre_word
+print(high_freq_word(s))
+
+        
 # Write a function to check whether two strings are anagrams.
 # listen
 # silent
@@ -516,7 +596,30 @@ def power(a, b):
 # Expected:
 
 # True
+s='listen'
+s1='silent'
+def anagrams(s,s1):
+    if sorted(s)==sorted(s1):
+        return True
+    return False
+print(anagrams(s,s1))
+
 # Write a function to return the top 3 highest numbers from a list without using sort().
+def top_three_numbers(nums):
+    t1=t2=t3=float('inf')
+    for num in nums:
+        if num>t1:
+            t3=t2
+            t2=t1
+            t1=num
+        elif num>t2:
+            t3=t2
+            t2=t1
+        elif num>t3:
+            t3=num
+    res=[x for x in [t1,t2,t3] if x != float('inf')]
+    return res[:len(nums)]
+print(top_three_numbers(nums))
 # 🔥 Level 11 — Real Interview Problems
 # Write a function that accepts a list of employee dictionaries and returns the employee with the highest salary.
 # employees = [
@@ -534,4 +637,3 @@ def power(a, b):
 # Write a function that reads a CSV file and returns the employee with the highest salary.
 # Write a function that accepts a list of transactions and calculates total sales.
 # Write a function that separates valid and invalid records based on missing values.
-
