@@ -133,36 +133,98 @@ non_repeating_char(s)
 
 
 # Implement FizzBuzz.
+def fizzbuzz(n):
+    for i in range(1,n):
+        if i%3==0 and i%5==0:
+            print("FizzBuzz")
+        elif i %3==0:
+            print("Fizz")
+        elif i%5==0:
+            print("Buzz")
+        else:
+            print(i)
+# fizzbuzz(100)
 # Flatten a one-level nested list.
+l=[[2,3,1],[2,6,0],[6,7]]
+def flatten_list(l):
+    f=[]
+    for i in l:
+        for item in i:
+            f.append(item)
+    return f
+# print(flatten_list(l))
+
+
+
 # Intermediate
 # Given an array and target, solve Two Sum.
-# Find the longest substring without repeating characters.
+l=[2,7,9,8,0,11,15,5,4]
+def sum_twos(l):
+    target=9
+    for i in range(len(l)):
+        for j in range(i+1,len(l)):
+            if l[i]+l[j]==target:
+                print(l[i],l[j])
+# sum_twos(l)
+
 # Group a list of strings into anagram groups.
-# Merge two sorted lists without using sorted().
-# Find the maximum sum of a contiguous subarray.
+def group_anagrams(words):
+    g={}
+    for word in words:
+        s="".join(sorted(word))
+        if s not in g:
+            g[s]=[]
+        g[s].append(word)
+    return list(g.values())
+print(group_anagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 # Rotate an array by k positions.
-# Check whether parentheses/brackets are balanced.
+l=[1,2,3,4,5]
+def rotate_array(l):
+    k=2
+    for i in range(k):
+        last_element=l.pop()
+        l.insert(0,last_element)
+    return l
+print(rotate_array(l))
+
 # Implement a stack using Python lists.
+class Stack:
+    def __init__(self):
+        self.stack = []
+        
+    def push(self, item):
+        self.stack.append(item)  
+        
+    def pop(self):
+        if not self.is_empty():
+            return self.stack.pop() 
+        return "Stack is empty"
+            
+    def is_empty(self):
+        return len(self.stack) == 0
+
+
+s = Stack()
+s.push(10)
+s.push(20)
+print(s.pop())   
 # Implement a queue without using collections.deque.
-# Find the k most frequent elements in a list.
-# Merge overlapping intervals.
-# Implement binary search.
-# Find the longest common prefix among strings.
-# Transpose a matrix.
-# Write a function that recursively flattens an arbitrarily nested list.
-# Advanced
-# Implement an LRU cache.
-# Implement a Python decorator that measures execution time.
-# Write a custom iterator that generates Fibonacci numbers.
-# Write a generator that reads a very large file line-by-line.
-# Implement a thread-safe singleton.
-# Implement a producer-consumer system using queue.Queue.
-# Explain and demonstrate shallow copy vs. deep copy.
-# Implement your own context manager using __enter__ and __exit__.
-# Implement a context manager using contextlib.contextmanager.
-# Given millions of records, find the top k most frequent values efficiently.
-# Implement BFS and DFS for a graph.
-# Detect a cycle in a linked list.
-# Reverse a linked list.
-# Find the lowest common ancestor in a binary tree.
-# Implement a trie for prefix searching.
+class Queue:
+    def __init__(self):
+        self.queue = []
+        
+    def enqueue(self, item):
+        self.queue.append(item) 
+        
+    def dequeue(self):
+        if not self.is_empty():
+            return self.queue.pop(0) 
+        return "Queue is empty"
+        
+    def is_empty(self):
+        return len(self.queue) == 0
+q = Queue()
+q.enqueue("A")
+q.enqueue("B")
+print(q.dequeue())
+
