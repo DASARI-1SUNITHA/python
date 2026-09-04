@@ -622,18 +622,48 @@ def top_three_numbers(nums):
 print(top_three_numbers(nums))
 # 🔥 Level 11 — Real Interview Problems
 # Write a function that accepts a list of employee dictionaries and returns the employee with the highest salary.
-# employees = [
-#     {"name": "A", "salary": 50000},
-#     {"name": "B", "salary": 70000},
-#     {"name": "C", "salary": 60000}
-# ]
+employees = [
+    {"name": "A", "salary": 50000},
+    {"name": "B", "salary": 70000},
+    {"name": "C", "salary": 60000}
+]
+def high_emp_sal(employees):
+    high_sal=employees[0]
+    for emp in employees:
+        if emp['salary']>high_sal['salary']:
+            high_sal=emp
+    return high_sal
+print(high_emp_sal(employees))
 # Write a function that groups employees by department.
+def group_by_department(employees):
+    grouped = {}
+    for emp in employees:
+        dept = emp.get("department", "Unknown")
+        if dept not in grouped:
+            grouped[dept] = []
+        grouped[dept].append(emp)
+    return grouped
+print(group_by_department(employees))
 # Write a function that calculates the average salary of employees.
+def avg_sal(employees):
+    t_sum=0
+    for em in employees:
+        t_sum+=emp['salary']
+    return t_sum/len(employees)
+print(avg_sal(employees))
 # Write a function that returns employees whose salary is greater than 50000.
+def high_sal(employees):
+    for emp in employees:
+        if emp['salary']>50000:
+            return emp
+print(high_sal(employees))
 # Write a function that finds the highest salary in each department.
-# Write a function that removes duplicate employee records.
-# Write a function that accepts a list of dictionaries and converts it into a dictionary using employee ID as the key.
-# Write a function to count the frequency of each word in a text file.
-# Write a function that reads a CSV file and returns the employee with the highest salary.
-# Write a function that accepts a list of transactions and calculates total sales.
-# Write a function that separates valid and invalid records based on missing values.
+def high_sal_dept(employees):
+    high_salary={}
+    for emp in employees:
+        dept=emp.get('department','unknown')
+        salary=emp['salary'] 
+        if dept not in high_salary or salary>high_salary[dept]:
+            high_salary[dept]=salary
+    return high_salary
+print(high_sal_dept(employees))

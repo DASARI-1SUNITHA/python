@@ -29,7 +29,7 @@ def sum_of_digits(l):
 l=[1,2,3,4,5,6,7,8,9,0]
 def no_of_elements(l):
     count=0
-    for i in l:
+    for _ in l:
         count+=1
     print(count)
 # no_of_elements(l)
@@ -214,7 +214,6 @@ n= [1, 2, 3, 5, 6]
 # 4
 def missing_elements(n):
     l=set(n)
-    m=max(n)
     for i in range(1,max(n)+1):
         if i not in n:
             print(i) 

@@ -284,8 +284,6 @@ remove_duplicates(s)
 # Expected:
 
 # "abc"
-s='abcabcbb'
-def long_substring(s):
 
 # Find the number of occurrences of a substring without using .count().
 # Check whether one string is a rotation of another.
@@ -301,7 +299,7 @@ def string_rotation(s):
         last_char=s.trim()
         s1=i+s1
     print(s1)
-string_rotation(s)
+# string_rotation(s)
 # Expected:
 
 # True
@@ -317,7 +315,7 @@ def longest_substr_palindrome(s):
                     longest=substring
 
     print(longest)
-longest_substr_palindrome(s)
+# longest_substr_palindrome(s)
 
 # Remove all duplicate words from a sentence.
 def remove_duplicates_words(s):
@@ -327,7 +325,7 @@ def remove_duplicates_words(s):
         if word not in unique_words:
             unique_words.append(word)
     print(" ".join(unique_words))
-remove_duplicates_words(s)
+# remove_duplicates_words(s)
 # Find the word with the highest frequency.
 def high_word_freq(s):
     words=s.split()
@@ -344,10 +342,7 @@ def high_word_freq(s):
             max_count=freq[word]
             max_word=word
     print(max_word)
-high_word_freq(s)
-
-it 
-
+# high_word_freq(s)
 # Compress a string.
 
 # Example:
@@ -355,6 +350,7 @@ it
 s="aaabbcccc"
 
 # Expected:
+
 
 # "a3b2c4"
 res=""

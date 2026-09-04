@@ -38,6 +38,7 @@ def smallest_numbers(num1,num2,num3):
         print('num1 is smaller')
     elif num2<num3 and num2<num1:
         print('num2 is smallerr')
+
     else:
         print('num3 is  smaller')
 # smallest_numbers(3,2,5)
@@ -273,7 +274,7 @@ def remove_duplicates(n):
             l+=str(digit)
         n//=10
     print(l)
-remove_duplicates(112323765)
+# remove_duplicates(112323765)
 
 # Find the sum of even digits and odd digits separately.
 def sum_even_odd(n):
@@ -287,7 +288,7 @@ def sum_even_odd(n):
             odd_sum+=digit
         n//=10
     print(even_sum,odd_sum)
-sum_even_odd(12345)
+# sum_even_odd(12345)
 # Check whether a number is a strong number.
 def strong_number(n):
     temp=n
@@ -300,7 +301,7 @@ def strong_number(n):
         print("strong number")
     else:
         print("not a strong number")
-strong_number(145)
+# strong_number(145)
 # Find all factors of a number.
 def factors(n):
     l=[]
